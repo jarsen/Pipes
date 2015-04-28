@@ -12,6 +12,8 @@
 		1EA6038E1AEFE53700B1E32B /* ForwardPipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EA6038D1AEFE53700B1E32B /* ForwardPipe.swift */; };
 		1EA603901AEFE62400B1E32B /* ForwardPipeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EA6038F1AEFE62400B1E32B /* ForwardPipeTests.swift */; };
 		1EA603921AEFE63900B1E32B /* TestHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EA603911AEFE63900B1E32B /* TestHelpers.swift */; };
+		1EA603951AEFE82700B1E32B /* Box.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1EA603931AEFE82700B1E32B /* Box.framework */; };
+		1EA603961AEFE82700B1E32B /* Result.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1EA603941AEFE82700B1E32B /* Result.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -33,6 +35,8 @@
 		1EA6038D1AEFE53700B1E32B /* ForwardPipe.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ForwardPipe.swift; sourceTree = "<group>"; };
 		1EA6038F1AEFE62400B1E32B /* ForwardPipeTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ForwardPipeTests.swift; sourceTree = "<group>"; };
 		1EA603911AEFE63900B1E32B /* TestHelpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestHelpers.swift; sourceTree = "<group>"; };
+		1EA603931AEFE82700B1E32B /* Box.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Box.framework; path = Carthage/Build/iOS/Box.framework; sourceTree = "<group>"; };
+		1EA603941AEFE82700B1E32B /* Result.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Result.framework; path = Carthage/Build/iOS/Result.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -47,6 +51,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1EA603961AEFE82700B1E32B /* Result.framework in Frameworks */,
+				1EA603951AEFE82700B1E32B /* Box.framework in Frameworks */,
 				1EA6037D1AEFE4BB00B1E32B /* Pipes.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -57,6 +63,8 @@
 		1EA603671AEFE4BB00B1E32B = {
 			isa = PBXGroup;
 			children = (
+				1EA603931AEFE82700B1E32B /* Box.framework */,
+				1EA603941AEFE82700B1E32B /* Result.framework */,
 				1EA603731AEFE4BB00B1E32B /* Pipes */,
 				1EA603801AEFE4BB00B1E32B /* PipesTests */,
 				1EA603721AEFE4BB00B1E32B /* Products */,
@@ -367,6 +375,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
@@ -384,6 +393,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
 				INFOPLIST_FILE = PipesTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
