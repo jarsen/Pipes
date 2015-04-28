@@ -6,6 +6,8 @@ import Foundation
 
 import XCTest
 import Pipes
+import Result
+import Box
 
 class FowardPipeTests : XCTestCase {
     func testFirstArgumentPipe() {
@@ -50,4 +52,33 @@ class FowardPipeTests : XCTestCase {
             |> double
         expect(value) == 6
     }
+    
+    func testResultPipe() {
+        let even: Int -> Result<Int, String> = { x in
+            if x % 2 == 0 {
+                return .Success(Box(x))
+            }
+            else {
+                return .Failure(Box("not even"))
+            }
+        }
+        
+        var result = 2 |> even
+        switch result {
+        case let .Success(valueBox):
+            let value = valueBox.value
+            expect(value) == 2
+        case let .Failure(message):
+            XCTFail("should not have failed")
+        }
+        
+        result = 3 |> even
+        switch result {
+        case let .Success:
+            XCTFail("pipe should have short circuited")
+        case .Failure:
+            break
+        }
+    }
+
 }
