@@ -12,10 +12,13 @@
 		1EA6038E1AEFE53700B1E32B /* ForwardPipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EA6038D1AEFE53700B1E32B /* ForwardPipe.swift */; };
 		1EA603901AEFE62400B1E32B /* ForwardPipeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EA6038F1AEFE62400B1E32B /* ForwardPipeTests.swift */; };
 		1EA603921AEFE63900B1E32B /* TestHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EA603911AEFE63900B1E32B /* TestHelpers.swift */; };
-		1EA603951AEFE82700B1E32B /* Box.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1EA603931AEFE82700B1E32B /* Box.framework */; };
-		1EA603961AEFE82700B1E32B /* Result.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1EA603941AEFE82700B1E32B /* Result.framework */; };
 		1EA603981AEFE8B800B1E32B /* BackwardPipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EA603971AEFE8B800B1E32B /* BackwardPipe.swift */; };
 		1EA6039A1AF018C500B1E32B /* BackwardPipeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EA603991AF018C500B1E32B /* BackwardPipeTests.swift */; };
+		1EA6039C1AF0259100B1E32B /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EA6039B1AF0259100B1E32B /* Result.swift */; };
+		1EA603A41AF0272600B1E32B /* Box.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1EA603A21AF0272600B1E32B /* Box.framework */; };
+		1EA603A51AF0272600B1E32B /* Result.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1EA603A31AF0272600B1E32B /* Result.framework */; };
+		1EA603A61AF0272E00B1E32B /* Box.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = 1EA603A21AF0272600B1E32B /* Box.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		1EA603A71AF0272E00B1E32B /* Result.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = 1EA603A31AF0272600B1E32B /* Result.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -28,6 +31,21 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		1EA6039F1AF025C700B1E32B /* Copy Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 12;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				1EA603A61AF0272E00B1E32B /* Box.framework in Copy Frameworks */,
+				1EA603A71AF0272E00B1E32B /* Result.framework in Copy Frameworks */,
+			);
+			name = "Copy Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		1EA603711AEFE4BB00B1E32B /* Pipes.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pipes.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		1EA603751AEFE4BB00B1E32B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -37,10 +55,11 @@
 		1EA6038D1AEFE53700B1E32B /* ForwardPipe.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ForwardPipe.swift; sourceTree = "<group>"; };
 		1EA6038F1AEFE62400B1E32B /* ForwardPipeTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ForwardPipeTests.swift; sourceTree = "<group>"; };
 		1EA603911AEFE63900B1E32B /* TestHelpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestHelpers.swift; sourceTree = "<group>"; };
-		1EA603931AEFE82700B1E32B /* Box.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Box.framework; path = Carthage/Build/iOS/Box.framework; sourceTree = "<group>"; };
-		1EA603941AEFE82700B1E32B /* Result.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Result.framework; path = Carthage/Build/iOS/Result.framework; sourceTree = "<group>"; };
 		1EA603971AEFE8B800B1E32B /* BackwardPipe.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BackwardPipe.swift; sourceTree = "<group>"; };
 		1EA603991AF018C500B1E32B /* BackwardPipeTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BackwardPipeTests.swift; sourceTree = "<group>"; };
+		1EA6039B1AF0259100B1E32B /* Result.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Result.swift; sourceTree = "<group>"; };
+		1EA603A21AF0272600B1E32B /* Box.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Box.framework; path = Carthage/Build/iOS/Box.framework; sourceTree = "<group>"; };
+		1EA603A31AF0272600B1E32B /* Result.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Result.framework; path = Carthage/Build/iOS/Result.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -48,6 +67,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1EA603A41AF0272600B1E32B /* Box.framework in Frameworks */,
+				1EA603A51AF0272600B1E32B /* Result.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -55,8 +76,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1EA603961AEFE82700B1E32B /* Result.framework in Frameworks */,
-				1EA603951AEFE82700B1E32B /* Box.framework in Frameworks */,
 				1EA6037D1AEFE4BB00B1E32B /* Pipes.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -67,8 +86,8 @@
 		1EA603671AEFE4BB00B1E32B = {
 			isa = PBXGroup;
 			children = (
-				1EA603931AEFE82700B1E32B /* Box.framework */,
-				1EA603941AEFE82700B1E32B /* Result.framework */,
+				1EA603A21AF0272600B1E32B /* Box.framework */,
+				1EA603A31AF0272600B1E32B /* Result.framework */,
 				1EA603731AEFE4BB00B1E32B /* Pipes */,
 				1EA603801AEFE4BB00B1E32B /* PipesTests */,
 				1EA603721AEFE4BB00B1E32B /* Products */,
@@ -91,6 +110,7 @@
 				1EA603741AEFE4BB00B1E32B /* Supporting Files */,
 				1EA6038D1AEFE53700B1E32B /* ForwardPipe.swift */,
 				1EA603971AEFE8B800B1E32B /* BackwardPipe.swift */,
+				1EA6039B1AF0259100B1E32B /* Result.swift */,
 			);
 			path = Pipes;
 			sourceTree = "<group>";
@@ -143,7 +163,7 @@
 				1EA6036C1AEFE4BB00B1E32B /* Sources */,
 				1EA6036D1AEFE4BB00B1E32B /* Frameworks */,
 				1EA6036E1AEFE4BB00B1E32B /* Headers */,
-				1EA6036F1AEFE4BB00B1E32B /* Resources */,
+				1EA6039F1AF025C700B1E32B /* Copy Frameworks */,
 			);
 			buildRules = (
 			);
@@ -208,13 +228,6 @@
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		1EA6036F1AEFE4BB00B1E32B /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		1EA6037A1AEFE4BB00B1E32B /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -229,6 +242,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1EA6039C1AF0259100B1E32B /* Result.swift in Sources */,
 				1EA603981AEFE8B800B1E32B /* BackwardPipe.swift in Sources */,
 				1EA6038E1AEFE53700B1E32B /* ForwardPipe.swift in Sources */,
 			);
@@ -352,6 +366,10 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = Pipes/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
@@ -369,6 +387,10 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = Pipes/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
