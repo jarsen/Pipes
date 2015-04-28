@@ -9,7 +9,9 @@
 /* Begin PBXBuildFile section */
 		1EA603771AEFE4BB00B1E32B /* Pipes.h in Headers */ = {isa = PBXBuildFile; fileRef = 1EA603761AEFE4BB00B1E32B /* Pipes.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		1EA6037D1AEFE4BB00B1E32B /* Pipes.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1EA603711AEFE4BB00B1E32B /* Pipes.framework */; };
-		1EA603841AEFE4BB00B1E32B /* PipesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EA603831AEFE4BB00B1E32B /* PipesTests.swift */; };
+		1EA6038E1AEFE53700B1E32B /* ForwardPipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EA6038D1AEFE53700B1E32B /* ForwardPipe.swift */; };
+		1EA603901AEFE62400B1E32B /* ForwardPipeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EA6038F1AEFE62400B1E32B /* ForwardPipeTests.swift */; };
+		1EA603921AEFE63900B1E32B /* TestHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EA603911AEFE63900B1E32B /* TestHelpers.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -28,7 +30,9 @@
 		1EA603761AEFE4BB00B1E32B /* Pipes.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Pipes.h; sourceTree = "<group>"; };
 		1EA6037C1AEFE4BB00B1E32B /* PipesTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PipesTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		1EA603821AEFE4BB00B1E32B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		1EA603831AEFE4BB00B1E32B /* PipesTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PipesTests.swift; sourceTree = "<group>"; };
+		1EA6038D1AEFE53700B1E32B /* ForwardPipe.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ForwardPipe.swift; sourceTree = "<group>"; };
+		1EA6038F1AEFE62400B1E32B /* ForwardPipeTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ForwardPipeTests.swift; sourceTree = "<group>"; };
+		1EA603911AEFE63900B1E32B /* TestHelpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestHelpers.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -73,6 +77,7 @@
 			children = (
 				1EA603761AEFE4BB00B1E32B /* Pipes.h */,
 				1EA603741AEFE4BB00B1E32B /* Supporting Files */,
+				1EA6038D1AEFE53700B1E32B /* ForwardPipe.swift */,
 			);
 			path = Pipes;
 			sourceTree = "<group>";
@@ -88,7 +93,8 @@
 		1EA603801AEFE4BB00B1E32B /* PipesTests */ = {
 			isa = PBXGroup;
 			children = (
-				1EA603831AEFE4BB00B1E32B /* PipesTests.swift */,
+				1EA603911AEFE63900B1E32B /* TestHelpers.swift */,
+				1EA6038F1AEFE62400B1E32B /* ForwardPipeTests.swift */,
 				1EA603811AEFE4BB00B1E32B /* Supporting Files */,
 			);
 			path = PipesTests;
@@ -209,6 +215,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1EA6038E1AEFE53700B1E32B /* ForwardPipe.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -216,7 +223,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1EA603841AEFE4BB00B1E32B /* PipesTests.swift in Sources */,
+				1EA603901AEFE62400B1E32B /* ForwardPipeTests.swift in Sources */,
+				1EA603921AEFE63900B1E32B /* TestHelpers.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -323,6 +331,7 @@
 		1EA603881AEFE4BB00B1E32B /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
@@ -332,12 +341,14 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
 		1EA603891AEFE4BB00B1E32B /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
