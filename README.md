@@ -2,9 +2,7 @@
 
 This is a Swift µframework that adds forward and back pipe operators.
 
-# Use
-
-The simplest pipe allows you to apply the left hand side of the expression as the first argument in the function on the left.
+The forward pipe operator allows you to apply the left hand side of the expression as the first argument in the function on the left.
 
 ```Swift
 func increment(x: Int) -> Int {
@@ -14,7 +12,7 @@ func increment(x: Int) -> Int {
 2 |> increment // returns 3
 ```
 
-Using the `.` operator is the most common and clean way in most cases to chain together instance method calls.
+Typically, using the `.` operator is the most common and clean way in most cases to chain together instance method calls.
 
 ``` Swift
 let isEven: Int->Bool = { x in x % 2 == 0 }
@@ -36,6 +34,8 @@ This is not the most readable code. The forward pipe operator offers a solution:
     |> (reduce, 0, +)
 ```
 
+## Optionals
+
 Futhermore, the pipeline operator even allows you to work simply with `Optional`s and `Result`s!
  
 ```Swift
@@ -54,10 +54,26 @@ else {
 }
 ```
 
+In this example, we are able to use the `find()` function, which returns an `Optional`, and immediately pipe it into isEven, which _does not_ take an optional. If one of the functions in the chain ever returns `nil`, the whole thing will short circuit and the result of the expression will be `nil`.
 
-In this example, we are able to use the `find()` function, which returns an `Optional`, and immediately pipe it into isEven, which _does not_ take an optional. This is similar to how you might use of the `foo?.bar()` in Swift. It also works with `Result`s!
+## Results
 
-### Variations
+The forward pipe also works seamlessly with `Result`s! The expression will short circuit as soon as something returns a `Failure` case. Otherwise, it will continue to apply the associated value of the `Success` into the next function.
+
+```swift
+func escapeInput(string: String) -> String { ... }
+
+func parseFile(fileName: String) -> Result<String> { ... }
+
+func processText(string: String) -> String { ... }
+
+inputFileName
+    |> escapeInput
+    |> readFile
+    |> processText
+```
+
+## Variations
 
 The standard forward pipe operator applies the left hand side as the first argument in the function on the right hand side. However, there may be cases in which you wish to apply the left hand side in a different position. Algebraic supplies 3 helper pipe operators
 
