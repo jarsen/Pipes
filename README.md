@@ -40,9 +40,18 @@ Futhermore, the pipeline operator even allows you to work simply with `Optional`
  
 ```Swift
 // searches elements for 6, and then checks to see if the index is even
-[2, 4, 6, 8, 10]
+let foo = [2, 4, 6, 8, 10]
     |> (find, 6)
     |> isEven
+    
+// without the pipe operator
+let foo: Bool?
+if let x = find([2, 4, 6, 8, 10], 100) {
+    foo = isEven(x)
+}
+else {
+    foo = nil
+}
 ```
 
 
