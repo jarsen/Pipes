@@ -12,20 +12,20 @@ func increment(x: Int) -> Int {
 2 |> increment // returns 3
 ```
 
-Typically, using the `.` operator is the most common and clean way in most cases to chain together instance method calls.
+Using the `.` operator is the most common and clean way in most cases to chain together instance method calls.
 
 ``` Swift
 let isEven: Int->Bool = { x in x % 2 == 0 }
 [1,2,3,4,5].filter(isEven).map({$0 * 3}).reduce(0, combine: +)
 ```
 
-However, the above example does not generalize to sequences, as the functions to operate on sequences are not members of `Sequence` the way they are members of `Array`. So, in order to do the above you must do:
+However, the above example does not generalize to sequences, as the functions to operate on sequences are not members of `Sequence`. When working on `Sequence`s, the code would look like:
 
  ```Swift
 reduce(map(filter([1,2,3,4,5], isEven), {$0 * 3}), 0, +)
 ```
 
-This is not the most readable code. The forward pipe operator offers a solution:
+This code is harder to read and reason about. The forward pipe operator offers a solution:
  
  ```Swift
 [1,2,3,4,5]
@@ -33,6 +33,8 @@ This is not the most readable code. The forward pipe operator offers a solution:
     |> (map, {$0 * 3})
     |> (reduce, 0, +)
 ```
+
+Using the forward pipe operator, the code reads as a list of functions in a processing pipeline. It also _helps avoid the introduction of temporary variables_ which only exist to store an argument into a function that will be called on the next line.
 
 ## Optionals
 
@@ -63,7 +65,7 @@ The forward pipe also works seamlessly with `Result`s! The expression will short
 ```swift
 func escapeInput(string: String) -> String { ... }
 
-func parseFile(fileName: String) -> Result<String> { ... }
+func readFile(fileName: String) -> Result<String> { ... }
 
 func processText(string: String) -> String { ... }
 
@@ -72,6 +74,8 @@ inputFileName
     |> readFile
     |> processText
 ```
+
+The above code shows function stubs and how one might chain them together in order to take some text input, read the corresponding file, and return some processed text. Of course, reading a file could potentially fail if the file can not be found, or permissions do not allow it. So, the `readFile` method could potenentially return a `Failure` result. If so, the entire expression will then short circuit and evaluate to the `Failure`. Otherwise it will continue processing. Regardless, the final result will be of type `Result<String>`, because the return type of `processText` is `String`. If we were to add another pipe, say into `|> count`, then the final result of the expression would be of type `Result<Int>`.
 
 ## Variations
 
