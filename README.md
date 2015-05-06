@@ -46,7 +46,7 @@ let foo = [2, 4, 6, 8, 10]
     
 // without the pipe operator
 let foo: Bool?
-if let x = find([2, 4, 6, 8, 10], 100) {
+if let x = find([2, 4, 6, 8, 10], 6) {
     foo = isEven(x)
 }
 else {
