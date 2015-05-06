@@ -7,14 +7,14 @@ This is a Swift µframework that adds forward and back pipe operators.
 The simplest pipe allows you to apply the left hand side of the expression as the first argument in the function on the left.
 
 ```Swift
-func increment(int: Int) -> Int {
-    return int + 1
+func increment(x: Int) -> Int {
+    return x + 1
 }
 
-2 |> increment
+2 |> increment // returns 3
 ```
 
-Using the `.` operator is the most common and clean way in most cases to chain together function calls.
+Using the `.` operator is the most common and clean way in most cases to chain together instance method calls.
 
 ``` Swift
 let isEven: Int->Bool = { x in x % 2 == 0 }
@@ -27,7 +27,7 @@ However, the above example does not generalize to sequences, as the functions to
 reduce(map(filter([1,2,3,4,5], isEven), {$0 * 3}), 0, +)
 ```
 
-Having tons of nested functions is difficult to read and reason about. The forward pipe operator offers a solution to this:
+This is not the most readable code. The forward pipe operator offers a solution:
  
  ```Swift
 [1,2,3,4,5]
@@ -46,7 +46,7 @@ Futhermore, the pipeline operator even allows you to work simply with `Optional`
 ```
 
 
-In this example, we are able to use the `find()` function, which returns an `Optional`, and we immediately pipe it into isEven, which does not take an optional. This is similar to how you might use of the `foo?.bar()` in Swift. It also works with `Result`s!
+In this example, we are able to use the `find()` function, which returns an `Optional`, and immediately pipe it into isEven, which _does not_ take an optional. This is similar to how you might use of the `foo?.bar()` in Swift. It also works with `Result`s!
 
 ### Variations
 
