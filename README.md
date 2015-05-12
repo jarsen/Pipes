@@ -2,7 +2,7 @@
 
 This is a Swift µframework that adds forward and back pipe operators.
 
-The forward pipe operator allows you to apply the left hand side of the expression as the first argument in the function on the left.
+The forward pipe operator allows you to apply the left hand side of the expression as the first argument in the function on the right.
 
 ```Swift
 func increment(x: Int) -> Int {
