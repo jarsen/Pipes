@@ -1,4 +1,9 @@
-# Pipes [![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)
+# Pipes
+
+[![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)
+[![MIT License](https://img.shields.io/dub/l/vibe-d.svg)]()
+
+---
 
 This is a Swift µframework that adds forward and back pipe operators.
 
@@ -26,7 +31,7 @@ reduce(map(filter([1,2,3,4,5], isEven), {$0 * 3}), 0, +)
 ```
 
 This code is harder to read and reason about. The forward pipe operator offers a solution:
- 
+
  ```Swift
 [1,2,3,4,5]
     |> (filter, isEven)
@@ -39,13 +44,13 @@ Using the forward pipe operator, the code reads as a list of functions in a proc
 ## Optionals
 
 Futhermore, the pipeline operator even allows you to work simply with `Optional`s and `Result`s!
- 
+
 ```Swift
 // searches elements for 6, and then checks to see if the index is even
 let foo = [2, 4, 6, 8, 10]
     |> (find, 6)
     |> isEven
-    
+
 // without the pipe operator
 let foo: Bool?
 if let x = find([2, 4, 6, 8, 10], 6) {
