@@ -111,13 +111,18 @@ public func replace<C: MutableCollectionType>(newElement: C.Generator.Element, a
 /// Update the value stored in the dictionary for the given key, or, if they
 /// key does not exist, add a new key-value pair to the dictionary.
 ///
-/// Returns the value that was replaced, or `nil` if a new key-value pair
+/// Returns the new dictionary, and the value that was replaced, or `nil` if a new key-value pair
 /// was added.
 public func updateValue<T,U>(var dictionary: [T:U], value: U, forKey key: T) -> ([T:U], oldValue: U?) {
     let result = dictionary.updateValue(value, forKey: key)
     return (dictionary, result)
 }
 
+/// Update the value stored in the dictionary for the given key, or, if they
+/// key does not exist, add a new key-value pair to the dictionary.
+///
+/// Returns the new dictionary, and the value that was replaced, or `nil` if a new key-value pair
+/// was added.
 public func updateValue<T,U>(value: U, forKey key: T)(dictionary: [T:U]) -> ([T:U], oldValue: U?) {
     return updateValue(dictionary, value, forKey: key)
 }
@@ -148,4 +153,19 @@ public func putNewValue<T,U>(var dictionary: [T:U], value: U, forKey key: T) -> 
 /// Puts the given `value` under `key` in `dictionary` unless `key` already exists.
 public func putNewValue<T,U>(value: U, forKey key: T)(dictionary: [T:U]) -> [T:U] {
     return putNewValue(dictionary, value, forKey: key)
+}
+
+/// Remove a given key and the associated value from the dictionary.
+/// Returns the updated dictionary and value that was removed, or `nil` if the key was not present
+/// in the dictionary.
+public func removeValueForKey<T,U>(var dictionary: [T:U], key: T) -> ([T:U], removed: U?) {
+    let result = dictionary.removeValueForKey(key)
+    return (dictionary, result)
+}
+
+/// Remove a given key and the associated value from the dictionary.
+/// Returns the updated dictionary and value that was removed, or `nil` if the key was not present
+/// in the dictionary.
+public func removeValueForKey<T,U>(key: T)(dictionary: [T:U]) -> ([T:U], removed: U?) {
+    return removeValueForKey(dictionary, key)
 }
