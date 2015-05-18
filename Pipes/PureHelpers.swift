@@ -108,33 +108,33 @@ public func replace<C: MutableCollectionType>(newElement: C.Generator.Element, a
 // MARK: Dictionary Stuff
 //
 
-public func updateValue<T,U>(var dictionary: [T:U], value: U, forKey key: T) -> ([T:U], U?) {
+/// Update the value stored in the dictionary for the given key, or, if they
+/// key does not exist, add a new key-value pair to the dictionary.
+///
+/// Returns the value that was replaced, or `nil` if a new key-value pair
+/// was added.
+public func updateValue<T,U>(var dictionary: [T:U], value: U, forKey key: T) -> ([T:U], oldValue: U?) {
     let result = dictionary.updateValue(value, forKey: key)
     return (dictionary, result)
 }
 
-public func updateValue<T,U>(value: U, forKey key: T)(dictionary: [T:U]) -> ([T:U], U?) {
+public func updateValue<T,U>(value: U, forKey key: T)(dictionary: [T:U]) -> ([T:U], oldValue: U?) {
     return updateValue(dictionary, value, forKey: key)
 }
 
+/// Returns the `Index` for the given key, or `nil` if the key is not
+/// present in the dictionary.
 public func getValue<T,U>(dictionary: [T:U], forKey key: T) -> U? {
     return dictionary[key]
 }
 
+/// Returns the `Index` for the given key, or `nil` if the key is not
+/// present in the dictionary.
 public func getValue<T,U>(forKey key: T)(dictionary: [T:U]) -> U? {
     return dictionary[key]
 }
 
-public func putValue<T,U>(var dictionary: [T:U], value: U, forKey key: T) -> [T:U] {
-    dictionary[key] = value
-    return dictionary
-}
-
-public func putValue<T,U>(value: U, forKey key: T)(var dictionary: [T:U]) -> [T:U] {
-    dictionary[key] = value
-    return dictionary
-}
-
+/// Puts the given `value` under `key` in `dictionary` unless `key` already exists.
 public func putNewValue<T,U>(var dictionary: [T:U], value: U, forKey key: T) -> [T:U] {
     if let _ = dictionary[key] {
         return dictionary
@@ -145,6 +145,7 @@ public func putNewValue<T,U>(var dictionary: [T:U], value: U, forKey key: T) -> 
     }
 }
 
+/// Puts the given `value` under `key` in `dictionary` unless `key` already exists.
 public func putNewValue<T,U>(value: U, forKey key: T)(dictionary: [T:U]) -> [T:U] {
     return putNewValue(dictionary, value, forKey: key)
 }
