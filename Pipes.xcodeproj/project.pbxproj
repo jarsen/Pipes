@@ -20,6 +20,7 @@
 		1EA603A61AF0272E00B1E32B /* Box.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = 1EA603A21AF0272600B1E32B /* Box.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		1EA603A71AF0272E00B1E32B /* Result.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = 1EA603A31AF0272600B1E32B /* Result.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		1EA603A91AF0298C00B1E32B /* Optional.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EA603A81AF0298C00B1E32B /* Optional.swift */; };
+		1EE819001B0A40CB00445D9F /* PureHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EE818FF1B0A40CB00445D9F /* PureHelpers.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -62,6 +63,7 @@
 		1EA603A21AF0272600B1E32B /* Box.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Box.framework; path = Carthage/Build/iOS/Box.framework; sourceTree = "<group>"; };
 		1EA603A31AF0272600B1E32B /* Result.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Result.framework; path = Carthage/Build/iOS/Result.framework; sourceTree = "<group>"; };
 		1EA603A81AF0298C00B1E32B /* Optional.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Optional.swift; sourceTree = "<group>"; };
+		1EE818FF1B0A40CB00445D9F /* PureHelpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PureHelpers.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -114,6 +116,7 @@
 				1EA603971AEFE8B800B1E32B /* BackwardPipe.swift */,
 				1EA6039B1AF0259100B1E32B /* Result.swift */,
 				1EA603A81AF0298C00B1E32B /* Optional.swift */,
+				1EE818FF1B0A40CB00445D9F /* PureHelpers.swift */,
 			);
 			path = Pipes;
 			sourceTree = "<group>";
@@ -247,6 +250,7 @@
 			files = (
 				1EA6039C1AF0259100B1E32B /* Result.swift in Sources */,
 				1EA603981AEFE8B800B1E32B /* BackwardPipe.swift in Sources */,
+				1EE819001B0A40CB00445D9F /* PureHelpers.swift in Sources */,
 				1EA6038E1AEFE53700B1E32B /* ForwardPipe.swift in Sources */,
 				1EA603A91AF0298C00B1E32B /* Optional.swift in Sources */,
 			);
