@@ -103,3 +103,48 @@ public func replace<C: MutableCollectionType>(var collection: C, newElement: C.G
 public func replace<C: MutableCollectionType>(newElement: C.Generator.Element, atIndex i: C.Index)(collection: C) -> C {
     return replace(collection, newElement, atIndex: i)
 }
+
+//
+// MARK: Dictionary Stuff
+//
+
+public func updateValue<T,U>(var dictionary: [T:U], value: U, forKey key: T) -> ([T:U], U?) {
+    let result = dictionary.updateValue(value, forKey: key)
+    return (dictionary, result)
+}
+
+public func updateValue<T,U>(value: U, forKey key: T)(dictionary: [T:U]) -> ([T:U], U?) {
+    return updateValue(dictionary, value, forKey: key)
+}
+
+public func getValue<T,U>(dictionary: [T:U], forKey key: T) -> U? {
+    return dictionary[key]
+}
+
+public func getValue<T,U>(forKey key: T)(dictionary: [T:U]) -> U? {
+    return dictionary[key]
+}
+
+public func putValue<T,U>(var dictionary: [T:U], value: U, forKey key: T) -> [T:U] {
+    dictionary[key] = value
+    return dictionary
+}
+
+public func putValue<T,U>(value: U, forKey key: T)(var dictionary: [T:U]) -> [T:U] {
+    dictionary[key] = value
+    return dictionary
+}
+
+public func putNewValue<T,U>(var dictionary: [T:U], value: U, forKey key: T) -> [T:U] {
+    if let _ = dictionary[key] {
+        return dictionary
+    }
+    else {
+        dictionary[key] = value
+        return dictionary
+    }
+}
+
+public func putNewValue<T,U>(value: U, forKey key: T)(dictionary: [T:U]) -> [T:U] {
+    return putNewValue(dictionary, value, forKey: key)
+}
