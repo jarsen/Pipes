@@ -5,9 +5,9 @@
 
 ---
 
-This is a Swift µframework that adds forward and back pipe operators.
+This is a Swift that provides forward and back pipe operators.
 
-The forward pipe operator allows you to apply the left hand side of the expression as the first argument in the function on the right.
+The [forward pipe operator](http://jasonlarsen.me/2015/05/23/pipes.html) allows you to apply the left hand side of the expression as the first argument in the function on the right.
 
 ```Swift
 func increment(x: Int) -> Int {
@@ -90,4 +90,5 @@ The standard forward pipe operator applies the left hand side as the first argum
 * `|>>>` applies the left hand side as the third argument
 * `|<` applies the left hand side as the last argument
 
-# Integration
+# Resources
+* [This blog post](http://jasonlarsen.me/2015/05/23/pipes.html)
