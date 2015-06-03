@@ -5,7 +5,7 @@
 
 ---
 
-This is a Swift that provides forward and back pipe operators.
+This is a Swift framework that provides forward and back pipe operators.
 
 The [forward pipe operator](http://jasonlarsen.me/2015/05/23/pipes.html) allows you to apply the left hand side of the expression as the first argument in the function on the right.
 
