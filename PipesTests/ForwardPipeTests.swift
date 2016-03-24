@@ -7,25 +7,28 @@ import Foundation
 import XCTest
 import Pipes
 import Result
-import Box
+
+enum TestError: ErrorType {
+    case NotEven
+}
 
 class FowardPipeTests : XCTestCase {
     func testFirstArgumentPipe() {
         let f: (Int, Int, Int) -> Int = { x, _, _ in x }
-        var value = 1 |> (f, 2, 3)
-        expect(value) == 1
+        let value = 1 |> (f, 2, 3)
+        XCTAssertEqual(value, 1)
     }
     
     func testSecondArgumentPipe() {
         let f: (Int, Int, Int) -> Int = { _, x, _ in x }
-        var value = 2 |>> (f, 1, 3)
-        expect(value) == 2
+        let value = 2 |>> (f, 1, 3)
+        XCTAssertEqual(value, 2)
     }
     
     func testThirdArgument() {
         let f: (Int, Int, Int) -> Int = { $2 }
-        var value = 3 |>>> (f, 1, 2)
-        expect(value) == 3
+        let value = 3 |>>> (f, 1, 2)
+        XCTAssertEqual(value, 3)
     }
     
     func testLastArgumentPipe() {
@@ -34,10 +37,10 @@ class FowardPipeTests : XCTestCase {
         let f3: (Int, Int, Int) -> Int = { $2 }
         let f4: (Int, Int, Int, Int) -> Int = { $3 }
         
-        expect(1 |< f1) == 1
-        expect(2 |< (f2, 1)) == 2
-        expect(3 |< (f3, 1, 2)) == 3
-        expect(4 |< (f4, 1, 2, 3)) == 4
+        XCTAssertEqual(1 |< f1, 1)
+        XCTAssertEqual(2 |< (f2, 1), 2)
+        XCTAssertEqual(3 |< (f3, 1, 2), 3)
+        XCTAssertEqual(4 |< (f4, 1, 2, 3), 4)
     }
     
     func testOrderOfOperations() {
@@ -45,36 +48,35 @@ class FowardPipeTests : XCTestCase {
         let double: Int->Int = {x in x*2}
         
         var value = 2 + 4 |> double
-        expect(value) == 12
+        XCTAssertEqual(value, 12)
         
         value = 2
             |> increment
             |> double
-        expect(value) == 6
+        XCTAssertEqual(value, 6)
     }
     
     func testResultPipe() {
-        let even: Int -> Result<Int, String> = { x in
+        let even: Int -> Result<Int, TestError> = { x in
             if x % 2 == 0 {
-                return .Success(Box(x))
+                return .Success(x)
             }
             else {
-                return .Failure(Box("not even"))
+                return .Failure(TestError.NotEven)
             }
         }
         
         var result = 2 |> even
         switch result {
-        case let .Success(valueBox):
-            let value = valueBox.value
-            expect(value) == 2
-        case let .Failure(message):
+        case let .Success(value):
+            XCTAssertEqual(value, 2)
+        case .Failure:
             XCTFail("should not have failed")
         }
         
         result = 3 |> even
         switch result {
-        case let .Success:
+        case .Success:
             XCTFail("pipe should have short circuited")
         case .Failure:
             break
