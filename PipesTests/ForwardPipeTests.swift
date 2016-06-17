@@ -41,8 +41,8 @@ class FowardPipeTests : XCTestCase {
     }
     
     func testOrderOfOperations() {
-        let increment: Int->Int = { x in x + 1 }
-        let double: Int->Int = {x in x*2}
+        let increment: (Int)->Int = { x in x + 1 }
+        let double: (Int)->Int = {x in x*2}
         
         var value = 2 + 4 |> double
         expect(value) == 12
@@ -54,7 +54,7 @@ class FowardPipeTests : XCTestCase {
     }
     
     func testResultPipe() {
-        let even: Int -> Result<Int, String> = { x in
+        let even: (Int) -> Result<Int, String> = { x in
             if x % 2 == 0 {
                 return .Success(Box(x))
             }

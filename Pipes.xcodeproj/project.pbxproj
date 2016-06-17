@@ -15,8 +15,6 @@
 		1EA603981AEFE8B800B1E32B /* BackwardPipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EA603971AEFE8B800B1E32B /* BackwardPipe.swift */; };
 		1EA6039A1AF018C500B1E32B /* BackwardPipeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EA603991AF018C500B1E32B /* BackwardPipeTests.swift */; };
 		1EA6039C1AF0259100B1E32B /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EA6039B1AF0259100B1E32B /* Result.swift */; };
-		1EA603A41AF0272600B1E32B /* Box.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1EA603A21AF0272600B1E32B /* Box.framework */; };
-		1EA603A51AF0272600B1E32B /* Result.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1EA603A31AF0272600B1E32B /* Result.framework */; };
 		1EA603A91AF0298C00B1E32B /* Optional.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EA603A81AF0298C00B1E32B /* Optional.swift */; };
 		1EE819001B0A40CB00445D9F /* PureHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EE818FF1B0A40CB00445D9F /* PureHelpers.swift */; };
 /* End PBXBuildFile section */
@@ -56,8 +54,6 @@
 		1EA603971AEFE8B800B1E32B /* BackwardPipe.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BackwardPipe.swift; sourceTree = "<group>"; };
 		1EA603991AF018C500B1E32B /* BackwardPipeTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BackwardPipeTests.swift; sourceTree = "<group>"; };
 		1EA6039B1AF0259100B1E32B /* Result.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Result.swift; sourceTree = "<group>"; };
-		1EA603A21AF0272600B1E32B /* Box.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Box.framework; sourceTree = BUILD_PRODUCTS_DIR; };
-		1EA603A31AF0272600B1E32B /* Result.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Result.framework; sourceTree = BUILD_PRODUCTS_DIR; };
 		1EA603A81AF0298C00B1E32B /* Optional.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Optional.swift; sourceTree = "<group>"; };
 		1EE818FF1B0A40CB00445D9F /* PureHelpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PureHelpers.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -67,8 +63,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1EA603A41AF0272600B1E32B /* Box.framework in Frameworks */,
-				1EA603A51AF0272600B1E32B /* Result.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -86,8 +80,6 @@
 		1EA603671AEFE4BB00B1E32B = {
 			isa = PBXGroup;
 			children = (
-				1EA603A21AF0272600B1E32B /* Box.framework */,
-				1EA603A31AF0272600B1E32B /* Result.framework */,
 				1EA603731AEFE4BB00B1E32B /* Pipes */,
 				1EA603801AEFE4BB00B1E32B /* PipesTests */,
 				1EA603721AEFE4BB00B1E32B /* Products */,
@@ -200,14 +192,16 @@
 		1EA603681AEFE4BB00B1E32B /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0630;
+				LastUpgradeCheck = 0800;
 				ORGANIZATIONNAME = "Jason Larsen";
 				TargetAttributes = {
 					1EA603701AEFE4BB00B1E32B = {
 						CreatedOnToolsVersion = 6.3.1;
+						LastSwiftMigration = 0800;
 					};
 					1EA6037B1AEFE4BB00B1E32B = {
 						CreatedOnToolsVersion = 6.3.1;
+						LastSwiftMigration = 0800;
 					};
 				};
 			};
@@ -295,6 +289,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -375,9 +370,11 @@
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "me.jasonlarsen.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
@@ -394,8 +391,11 @@
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "me.jasonlarsen.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
 		};
@@ -412,7 +412,9 @@
 				);
 				INFOPLIST_FILE = PipesTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "me.jasonlarsen.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
@@ -425,7 +427,10 @@
 				);
 				INFOPLIST_FILE = PipesTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "me.jasonlarsen.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
 		};
