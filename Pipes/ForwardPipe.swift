@@ -11,7 +11,7 @@ infix operator |< { precedence 100 associativity left } // Pipe into last argume
 
 // MARK: First argument
 
-public func |> <A,Z>(lhs: A, rhs: A -> Z) -> Z {
+public func |> <A,Z>(lhs: A, rhs: (A) -> Z) -> Z {
     return rhs(lhs)
 }
 
@@ -77,7 +77,7 @@ public func |>>> <A,B,C,D,E,F,Z>(lhs: C, rhs: (((A, B, C, D, E, F) -> Z), A, B, 
 
 // MARK: Last Argument
 
-public func |< <A,Z>(lhs: A, rhs: A -> Z) -> Z {
+public func |< <A,Z>(lhs: A, rhs: (A) -> Z) -> Z {
     return rhs(lhs)
 }
 

@@ -6,7 +6,7 @@ import Foundation
 
 // First argument
 
-public func |> <A,Z>(lhs: A?, rhs: A -> Z) -> Z? {
+public func |> <A,Z>(lhs: A?, rhs: (A) -> Z) -> Z? {
     return lhs.map(rhs)
 }
 

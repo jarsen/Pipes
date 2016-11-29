@@ -6,6 +6,6 @@ import Foundation
 
 infix operator <| { precedence 100 associativity right }
 
-public func <|<A,Z>(lhs: A->Z, rhs: A) -> Z {
+public func <|<A,Z>(lhs: (A)->Z, rhs: A) -> Z {
     return lhs(rhs)
 }

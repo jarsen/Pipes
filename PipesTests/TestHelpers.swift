@@ -4,7 +4,7 @@
 
 import XCTest
 
-func expect<T: Equatable>(value: T, file: String = __FILE__, line: Int = __LINE__) -> (T, String, Int) {
+func expect<T: Equatable>(_ value: T, file: String = #file, line: Int = #line) -> (T, String, Int) {
     return (value, file, line)
 }
 

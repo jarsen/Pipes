@@ -7,7 +7,7 @@ import Result
 
 // First argument
 
-public func |> <A,Z,Error>(lhs: Result<A, Error>, rhs: A -> Z) -> Result<Z, Error> {
+public func |> <A,Z,Error>(lhs: Result<A, Error>, rhs: (A) -> Z) -> Result<Z, Error> {
     return lhs.map(rhs)
 }
 
