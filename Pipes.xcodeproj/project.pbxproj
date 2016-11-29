@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1E7FAEA71DED06FC00D19FA6 /* Result.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1E7FAEA61DED06FC00D19FA6 /* Result.framework */; };
 		1EA603771AEFE4BB00B1E32B /* Pipes.h in Headers */ = {isa = PBXBuildFile; fileRef = 1EA603761AEFE4BB00B1E32B /* Pipes.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		1EA6037D1AEFE4BB00B1E32B /* Pipes.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1EA603711AEFE4BB00B1E32B /* Pipes.framework */; };
 		1EA6038E1AEFE53700B1E32B /* ForwardPipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EA6038D1AEFE53700B1E32B /* ForwardPipe.swift */; };
@@ -15,7 +16,6 @@
 		1EA603981AEFE8B800B1E32B /* BackwardPipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EA603971AEFE8B800B1E32B /* BackwardPipe.swift */; };
 		1EA6039A1AF018C500B1E32B /* BackwardPipeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EA603991AF018C500B1E32B /* BackwardPipeTests.swift */; };
 		1EA6039C1AF0259100B1E32B /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EA6039B1AF0259100B1E32B /* Result.swift */; };
-		1EA603A51AF0272600B1E32B /* Result.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1EA603A31AF0272600B1E32B /* Result.framework */; };
 		1EA603A91AF0298C00B1E32B /* Optional.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EA603A81AF0298C00B1E32B /* Optional.swift */; };
 		1EE819001B0A40CB00445D9F /* PureHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EE818FF1B0A40CB00445D9F /* PureHelpers.swift */; };
 /* End PBXBuildFile section */
@@ -44,6 +44,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		1E7FAEA61DED06FC00D19FA6 /* Result.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Result.framework; path = Carthage/Build/iOS/Result.framework; sourceTree = "<group>"; };
 		1EA603711AEFE4BB00B1E32B /* Pipes.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pipes.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		1EA603751AEFE4BB00B1E32B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1EA603761AEFE4BB00B1E32B /* Pipes.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Pipes.h; sourceTree = "<group>"; };
@@ -55,7 +56,6 @@
 		1EA603971AEFE8B800B1E32B /* BackwardPipe.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BackwardPipe.swift; sourceTree = "<group>"; };
 		1EA603991AF018C500B1E32B /* BackwardPipeTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BackwardPipeTests.swift; sourceTree = "<group>"; };
 		1EA6039B1AF0259100B1E32B /* Result.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Result.swift; sourceTree = "<group>"; };
-		1EA603A31AF0272600B1E32B /* Result.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Result.framework; sourceTree = BUILD_PRODUCTS_DIR; };
 		1EA603A81AF0298C00B1E32B /* Optional.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Optional.swift; sourceTree = "<group>"; };
 		1EE818FF1B0A40CB00445D9F /* PureHelpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PureHelpers.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -65,7 +65,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1EA603A51AF0272600B1E32B /* Result.framework in Frameworks */,
+				1E7FAEA71DED06FC00D19FA6 /* Result.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -83,7 +83,7 @@
 		1EA603671AEFE4BB00B1E32B = {
 			isa = PBXGroup;
 			children = (
-				1EA603A31AF0272600B1E32B /* Result.framework */,
+				1E7FAEA61DED06FC00D19FA6 /* Result.framework */,
 				1EA603731AEFE4BB00B1E32B /* Pipes */,
 				1EA603801AEFE4BB00B1E32B /* PipesTests */,
 				1EA603721AEFE4BB00B1E32B /* Products */,
@@ -368,7 +368,10 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = Pipes/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
@@ -388,7 +391,10 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = Pipes/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
