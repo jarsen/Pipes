@@ -9,7 +9,7 @@ class BackwardPipeTests : XCTestCase {
     func testPipeOperatorWorks() {
         let increment: Int->Int = { x in x + 1 }
         let value = increment <| 4
-        expect(value) == 5
+        XCTAssertEqual(value, 5)
     }
     
     func testOrderOfOperations() {
@@ -17,9 +17,9 @@ class BackwardPipeTests : XCTestCase {
         let double: Int->Int = {x in x*2}
         
         var value = double <| 2 + 4
-        expect(value) == 12
+        XCTAssertEqual(value, 12)
 
         value = double <| increment <| 2
-        expect(value) == 6
+        XCTAssertEqual(value, 6)
     }
 }
